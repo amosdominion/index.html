@@ -1,0 +1,933 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amos Dominion | Premium Book Marketing Specialist</title>
+    <meta name="description" content="Amos Dominion is a premium book marketing specialist helping authors launch bestsellers through data-driven strategies, retail optimization, and full written accountability.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+        :root{
+            --gold:#C9A84C;--gold-light:#E8D5A3;--gold-dark:#A88830;
+            --navy:#0D1B2A;--navy-mid:#1B2E45;--navy-light:#243B55;
+            --cream:#FAF8F4;--cream-dark:#F2EDE4;--white:#FFFFFF;
+            --text-dark:#0D1B2A;--text-mid:#3D5166;--text-light:#7A8E9E;
+            --success:#2E7D32;
+            --shadow-sm:0 2px 12px rgba(0,0,0,0.06);
+            --shadow-md:0 8px 32px rgba(0,0,0,0.10);
+            --shadow-lg:0 20px 60px rgba(0,0,0,0.14);
+            --shadow-gold:0 8px 30px rgba(201,168,76,0.25);
+            --ease:cubic-bezier(0.25,0.46,0.45,0.94);
+            --transition:all 0.35s var(--ease);
+        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;font-size:16px}
+        body{font-family:'Inter',sans-serif;color:var(--text-dark);background:var(--cream);overflow-x:hidden;line-height:1.65}
+        ::-webkit-scrollbar{width:6px}
+        ::-webkit-scrollbar-track{background:var(--cream)}
+        ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+        a{text-decoration:none;color:inherit}
+        button{cursor:pointer;font-family:'Inter',sans-serif;border:none;background:none}
+        ul{list-style:none}
+        img{max-width:100%;display:block}
+
+        .container{max-width:1160px;margin:0 auto;padding:0 2rem}
+        .gold{color:var(--gold)}
+        .eyebrow{display:flex;align-items:center;gap:0.6rem;font-size:0.75rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+        .eyebrow-line{display:inline-block;width:40px;height:2px;background:var(--gold);border-radius:1px;flex-shrink:0}
+
+        .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.88rem 2rem;border-radius:6px;font-size:0.95rem;font-weight:600;letter-spacing:0.03em;transition:var(--transition);white-space:nowrap;cursor:pointer}
+        .btn-gold{background:var(--gold);color:var(--navy);border:2px solid var(--gold)}
+        .btn-gold:hover{background:var(--gold-dark);border-color:var(--gold-dark);transform:translateY(-2px);box-shadow:var(--shadow-gold)}
+        .btn-outline-gold{background:transparent;color:var(--gold);border:2px solid var(--gold)}
+        .btn-outline-gold:hover{background:var(--gold);color:var(--navy);transform:translateY(-2px)}
+        .btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.45)}
+        .btn-outline-white:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+        .btn-lg{padding:1.05rem 2.4rem;font-size:1rem}
+        .btn-arrow::after{content:'→';font-size:1.05em}
+
+        /* NAVBAR */
+        .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 0;transition:var(--transition)}
+        .navbar--solid{background:rgba(13,27,42,0.98);backdrop-filter:blur(24px);padding:0.7rem 0;box-shadow:0 2px 24px rgba(0,0,0,0.28)}
+        .navbar__inner{display:flex;align-items:center;justify-content:space-between}
+        .navbar__logo{height:44px;cursor:pointer;transition:var(--transition)}
+        .navbar__logo:hover{opacity:0.85}
+        .navbar__logo img{height:100%;width:auto}
+        .navbar__links{display:flex;align-items:center;gap:2rem}
+        .nav-btn{font-size:0.87rem;font-weight:500;color:rgba(255,255,255,0.8);letter-spacing:0.03em;position:relative;padding-bottom:2px;transition:var(--transition)}
+        .nav-btn::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;background:var(--gold);transition:var(--transition)}
+        .nav-btn:hover,.nav-btn.active{color:var(--gold)}
+        .nav-btn:hover::after,.nav-btn.active::after{width:100%}
+        .nav-cta{padding:0.55rem 1.3rem;background:var(--gold);color:var(--navy);border-radius:5px;font-weight:700;font-size:0.87rem;transition:var(--transition)}
+        .nav-cta::after{display:none}
+        .nav-cta:hover{background:var(--gold-dark);transform:translateY(-1px);box-shadow:var(--shadow-gold)}
+        .hamburger{display:none;flex-direction:column;gap:5px;padding:6px}
+        .hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:var(--transition)}
+        .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+        .hamburger.open span:nth-child(2){opacity:0}
+        .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+        .mobile-drawer{display:none;position:fixed;inset:0;background:var(--navy);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+        .mobile-drawer.open{display:flex}
+        .mobile-drawer__link{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:600;color:#fff;transition:var(--transition)}
+        .mobile-drawer__link:hover{color:var(--gold)}
+        .mobile-drawer__close{position:absolute;top:1.5rem;right:2rem;font-size:1.8rem;color:#fff}
+
+        /* PAGE SYSTEM */
+        .page{display:none;animation:pageFade 0.48s ease forwards}
+        .page.active{display:block}
+        @keyframes pageFade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+        /* PAGE HERO */
+        .page-hero{padding:10rem 0 5.5rem;background:linear-gradient(155deg,var(--navy) 0%,var(--navy-mid) 55%,var(--navy-light) 100%);position:relative;overflow:hidden}
+        .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(201,168,76,0.07) 0%,transparent 65%)}
+        .page-hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:80px;background:linear-gradient(to bottom,transparent,var(--cream))}
+        .page-hero__inner{position:relative;z-index:2;text-align:center}
+        .page-hero__title{font-family:'Playfair Display',serif;font-size:clamp(2.1rem,5vw,3.4rem);font-weight:800;color:#fff;line-height:1.18;margin-bottom:1rem}
+        .page-hero__sub{font-size:1.05rem;color:rgba(255,255,255,0.65);max-width:660px;margin:0 auto 1.5rem;line-height:1.8}
+        .breadcrumb{display:flex;align-items:center;justify-content:center;gap:0.5rem;font-size:0.82rem}
+        .breadcrumb__btn{color:rgba(255,255,255,0.42);transition:var(--transition)}
+        .breadcrumb__btn:hover{color:var(--gold)}
+        .breadcrumb__sep{color:rgba(255,255,255,0.22)}
+        .breadcrumb__current{color:var(--gold);font-weight:500}
+
+        /* SECTIONS */
+        .section{padding:5.5rem 0}
+        .section--dark{background:var(--navy)}
+        .section--white{background:var(--white)}
+        .section--cream{background:var(--cream)}
+        .section--cream-dark{background:var(--cream-dark)}
+        .section-header{text-align:center;max-width:800px;margin:0 auto 3.5rem}
+        .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.85rem,3.5vw,2.75rem);font-weight:700;line-height:1.25;margin-bottom:1rem}
+        .section--dark .section-title{color:#fff}
+        .section-sub{font-size:1.02rem;color:var(--text-mid);line-height:1.8}
+        .section--dark .section-sub{color:rgba(255,255,255,0.6)}
+
+        /* REVEAL */
+        .reveal{opacity:0;transform:translateY(26px);transition:opacity 0.62s ease,transform 0.62s ease}
+        .reveal.in-view{opacity:1;transform:none}
+        .d1{transition-delay:0.08s}.d2{transition-delay:0.18s}.d3{transition-delay:0.28s}.d4{transition-delay:0.38s}
+
+        /* HOME HERO */
+        .hero{min-height:100vh;display:flex;align-items:center;background:linear-gradient(150deg,#070E18 0%,#0D1B2A 35%,#1B2E45 70%,#0D1B2A 100%);position:relative;overflow:hidden}
+        .hero__bg{position:absolute;inset:0;background:radial-gradient(ellipse at 15% 50%,rgba(201,168,76,0.10) 0%,transparent 55%),radial-gradient(ellipse at 85% 20%,rgba(201,168,76,0.05) 0%,transparent 45%)}
+        .hero__grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.018) 1px,transparent 1px);background-size:64px 64px}
+        .hero__inner{position:relative;z-index:3;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;padding-top:5rem}
+        .hero__kicker{display:inline-flex;align-items:center;gap:0.6rem;padding:0.45rem 1.1rem;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-radius:50px;margin-bottom:1.75rem}
+        .hero__kicker-dot{width:7px;height:7px;background:var(--gold);border-radius:50%;animation:dotPulse 2s ease infinite}
+        @keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(1.6)}}
+        .hero__kicker-text{font-size:0.75rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold)}
+        .hero__headline{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;color:#fff;line-height:1.12;margin-bottom:1.5rem}
+        .hero__headline em{font-style:italic;color:var(--gold)}
+        .hero__sub{font-size:1.05rem;color:rgba(255,255,255,0.72);line-height:1.82;max-width:480px;margin-bottom:2.25rem}
+        .hero__cta-group{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
+        .hero__proof{display:flex;gap:2.5rem;padding-top:2.25rem;border-top:1px solid rgba(255,255,255,0.1)}
+        .hero__proof-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--gold);line-height:1}
+        .hero__proof-label{font-size:0.77rem;color:rgba(255,255,255,0.42);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.25rem}
+
+        /* Hero Visual */
+        .hero__visual{position:relative;display:flex;justify-content:center;align-items:center}
+        .hero__photo-frame{width:380px;height:460px;border-radius:16px;overflow:hidden;border:2px solid rgba(201,168,76,0.3);position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+        .hero__photo-frame img{width:100%;height:100%;object-fit:cover;object-position:top center}
+        .hero__photo-frame::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(13,27,42,0.3) 0%,transparent 40%)}
+        .hero__float-card{position:absolute;background:rgba(255,255,255,0.06);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1rem 1.2rem;animation:floatY 5s ease-in-out infinite}
+        .hero__float-card--a{top:-15px;right:-40px;animation-delay:0s}
+        .hero__float-card--b{bottom:40px;left:-50px;animation-delay:2s}
+        .hero__float-card__icon{font-size:1.3rem;margin-bottom:0.2rem}
+        .hero__float-card__num{font-size:1.3rem;font-weight:700;color:#fff}
+        .hero__float-card__label{font-size:0.67rem;color:rgba(255,255,255,0.48);text-transform:uppercase;letter-spacing:0.08em}
+        @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+        /* POLICY STRIP */
+        .policy-strip{background:var(--gold);padding:1.1rem 0}
+        .policy-strip__inner{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;text-align:center}
+        .policy-strip__tag{background:var(--navy);color:var(--gold);font-size:0.7rem;font-weight:700;padding:0.22rem 0.65rem;border-radius:4px;text-transform:uppercase;letter-spacing:0.1em;flex-shrink:0}
+        .policy-strip__text{font-size:0.9rem;font-weight:600;color:var(--navy);line-height:1.5}
+
+        /* TRUST BAR */
+        .trust-bar{padding:2.4rem 0;background:var(--white);border-bottom:1px solid rgba(0,0,0,0.06)}
+        .trust-bar__label{text-align:center;font-size:0.76rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-light);margin-bottom:1.5rem}
+        .trust-bar__logos{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:3rem}
+        .trust-logo{font-family:'Playfair Display',serif;font-size:0.98rem;font-weight:700;color:var(--text-light);opacity:0.5;transition:var(--transition)}
+        .trust-logo:hover{opacity:0.9;color:var(--gold)}
+
+        /* VALUE CARDS */
+        .value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+        .value-card{background:var(--white);border-radius:12px;padding:2.5rem;border:1px solid rgba(0,0,0,0.06);transition:var(--transition);position:relative;overflow:hidden}
+        .value-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:var(--transition)}
+        .value-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+        .value-card:hover::before{transform:scaleX(1)}
+        .value-card__icon{width:58px;height:58px;background:rgba(201,168,76,0.09);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.25rem;transition:var(--transition)}
+        .value-card:hover .value-card__icon{background:var(--gold)}
+        .value-card__title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin-bottom:0.75rem}
+        .value-card__desc{font-size:0.92rem;color:var(--text-mid);line-height:1.78}
+
+        /* STATS ROW */
+        .stats-row{display:grid;grid-template-columns:repeat(4,1fr);background:var(--navy);border-radius:12px;overflow:hidden}
+        .stats-cell{padding:2.25rem 1.5rem;text-align:center;border-right:1px solid rgba(255,255,255,0.07);transition:var(--transition)}
+        .stats-cell:last-child{border-right:none}
+        .stats-cell:hover{background:rgba(201,168,76,0.06)}
+        .stats-cell__num{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:0.4rem}
+        .stats-cell__label{font-size:0.79rem;color:rgba(255,255,255,0.42);text-transform:uppercase;letter-spacing:0.1em}
+
+        /* CTA BAND */
+        .cta-band{background:linear-gradient(145deg,var(--navy),var(--navy-mid));border-radius:16px;padding:4rem 3rem;text-align:center;position:relative;overflow:hidden}
+        .cta-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,168,76,0.08) 0%,transparent 70%)}
+        .cta-band__inner{position:relative;z-index:2}
+        .cta-band__title{font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3vw,2.55rem);font-weight:700;color:#fff;margin-bottom:0.85rem}
+        .cta-band__sub{font-size:1rem;color:rgba(255,255,255,0.65);margin-bottom:2rem;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.78}
+        .cta-band__buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+        .cta-note{margin-top:1.2rem;font-size:0.8rem;color:rgba(255,255,255,0.35)}
+
+        /* ABOUT */
+        .about-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+        .about-photo-wrap{position:relative}
+        .about-photo{width:100%;height:520px;border-radius:14px;overflow:hidden;border:2px solid rgba(201,168,76,0.2);box-shadow:var(--shadow-lg)}
+        .about-photo img{width:100%;height:100%;object-fit:cover;object-position:top center}
+        .about-badge{position:absolute;bottom:2rem;left:-1.5rem;background:var(--gold);color:var(--navy);padding:1.25rem 1.5rem;border-radius:10px;box-shadow:var(--shadow-gold);text-align:center}
+        .about-badge__num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:800;line-height:1}
+        .about-badge__label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-top:0.25rem}
+        .about-text__headline{font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3vw,2.35rem);font-weight:700;line-height:1.25;margin-bottom:1.25rem}
+        .about-text p{color:var(--text-mid);line-height:1.82;margin-bottom:1.25rem;font-size:1rem}
+        .check-list{display:grid;grid-template-columns:1fr 1fr;gap:0.85rem;margin:1.75rem 0}
+        .check-list li{display:flex;align-items:center;gap:0.65rem;font-size:0.89rem;font-weight:500}
+        .check-list li::before{content:'✦';color:var(--gold);font-size:0.62rem;flex-shrink:0}
+
+        /* PILLARS */
+        .pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem}
+        .pillar-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:2.25rem 2rem;transition:var(--transition)}
+        .pillar-card:hover{background:rgba(201,168,76,0.05);border-color:rgba(201,168,76,0.2);transform:translateY(-5px)}
+        .pillar-card__num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;color:rgba(201,168,76,0.18);margin-bottom:0.75rem}
+        .pillar-card__title{font-family:'Playfair Display',serif;font-size:1.22rem;color:#fff;margin-bottom:0.75rem}
+        .pillar-card__desc{font-size:0.91rem;color:rgba(255,255,255,0.55);line-height:1.75}
+
+        /* SERVICES GRID */
+        .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+        .service-card{background:var(--white);border-radius:12px;padding:2.5rem;border:1px solid rgba(0,0,0,0.07);transition:var(--transition);position:relative;overflow:hidden}
+        .service-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:var(--transition)}
+        .service-card:hover{transform:translateY(-7px);box-shadow:var(--shadow-lg)}
+        .service-card:hover::after{transform:scaleX(1)}
+        .service-card__icon{width:58px;height:58px;background:rgba(201,168,76,0.08);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.45rem;margin-bottom:1.25rem;transition:var(--transition)}
+        .service-card:hover .service-card__icon{background:var(--gold)}
+        .service-card__title{font-family:'Playfair Display',serif;font-size:1.22rem;font-weight:700;margin-bottom:0.75rem}
+        .service-card__desc{font-size:0.92rem;color:var(--text-mid);line-height:1.78;margin-bottom:1.5rem}
+        .service-card__features li{display:flex;align-items:flex-start;gap:0.55rem;padding:0.42rem 0;font-size:0.86rem;color:var(--text-mid);border-bottom:1px solid rgba(0,0,0,0.05)}
+        .service-card__features li:last-child{border-bottom:none}
+        .service-card__features li::before{content:'✦';color:var(--gold);font-size:0.58rem;margin-top:0.3rem;flex-shrink:0}
+
+        /* FEATURED AUTHORS */
+        .authors-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2.5rem}
+        .author-card{background:var(--white);border-radius:16px;border:1px solid rgba(0,0,0,0.07);overflow:hidden;transition:var(--transition);display:flex;flex-direction:column}
+        .author-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:rgba(201,168,76,0.25)}
+        .author-card__top{display:flex;gap:1.75rem;padding:2.25rem 2.25rem 0}
+        .author-card__profile{width:90px;height:90px;border-radius:50%;overflow:hidden;border:3px solid var(--gold);flex-shrink:0;box-shadow:0 4px 16px rgba(0,0,0,0.1)}
+        .author-card__profile img{width:100%;height:100%;object-fit:cover}
+        .author-card__info{flex:1}
+        .author-card__name{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;margin-bottom:0.25rem;color:var(--text-dark)}
+        .author-card__role{font-size:0.82rem;color:var(--text-light);margin-bottom:0.5rem}
+        .author-card__email{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.8rem;color:var(--gold);font-weight:500;word-break:break-all}
+        .author-card__email-icon{font-size:0.9rem}
+        .author-card__body{padding:1.5rem 2.25rem;flex:1}
+        .author-card__quote{font-size:0.93rem;color:var(--text-mid);line-height:1.78;font-style:italic;position:relative;padding-left:1.25rem;border-left:3px solid var(--gold)}
+        .author-card__bottom{display:flex;align-items:flex-end;gap:1.5rem;padding:0 2.25rem 2.25rem;margin-top:auto}
+        .author-card__book{width:110px;flex-shrink:0;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-md);transition:var(--transition);cursor:pointer;position:relative}
+        .author-card__book:hover{transform:scale(1.05);box-shadow:var(--shadow-lg)}
+        .author-card__book img{width:100%;height:auto;display:block}
+        .author-card__amazon{display:inline-flex;align-items:center;gap:0.5rem;padding:0.55rem 1.1rem;background:var(--navy);color:#fff;border-radius:6px;font-size:0.78rem;font-weight:600;letter-spacing:0.03em;transition:var(--transition);margin-top:0.75rem}
+        .author-card__amazon:hover{background:var(--gold);color:var(--navy);transform:translateY(-2px)}
+        .author-card__amazon svg{width:16px;height:16px;fill:currentColor}
+        .author-card__meta{display:flex;flex-direction:column;gap:0.5rem}
+        .author-card__result{display:inline-flex;align-items:center;gap:0.4rem;background:rgba(201,168,76,0.1);color:var(--gold);padding:0.25rem 0.75rem;border-radius:20px;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;width:fit-content}
+
+        /* FOUNDER SECTION */
+        .founder-section{display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:center}
+        .founder-photo{width:200px;height:200px;border-radius:50%;overflow:hidden;border:3px solid var(--gold);box-shadow:0 8px 30px rgba(0,0,0,0.15);flex-shrink:0}
+        .founder-photo img{width:100%;height:100%;object-fit:cover;object-position:top center}
+        .founder-text h3{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#fff;margin-bottom:0.75rem}
+        .founder-text p{color:rgba(255,255,255,0.65);line-height:1.78;font-size:0.97rem;margin-bottom:1rem}
+        .founder-text .sig{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--gold)}
+
+        /* CONTACT */
+        .contact-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:4rem;align-items:start}
+        .contact-info__headline{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;line-height:1.25;margin-bottom:1rem}
+        .contact-info p{color:var(--text-mid);line-height:1.82;font-size:0.97rem;margin-bottom:1.25rem}
+        .contact-details{margin-bottom:2rem}
+        .contact-detail{display:flex;align-items:flex-start;gap:1rem;padding:0.9rem 0;border-bottom:1px solid rgba(0,0,0,0.07)}
+        .contact-detail__icon{width:44px;height:44px;background:rgba(201,168,76,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.05rem;flex-shrink:0;margin-top:2px}
+        .contact-detail__label{font-size:0.74rem;color:var(--text-light);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.2rem}
+        .contact-detail__value{font-weight:600;font-size:0.94rem}
+        .contact-detail__note{font-size:0.78rem;color:var(--text-light);margin-top:0.15rem;line-height:1.5}
+
+        .contact-form-card{background:var(--white);border-radius:14px;padding:2.75rem;box-shadow:var(--shadow-md);border:1px solid rgba(0,0,0,0.06)}
+        .contact-form-card__heading{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;margin-bottom:0.4rem}
+        .contact-form-card__sub{font-size:0.87rem;color:var(--text-light);margin-bottom:2rem;line-height:1.65}
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+        .form-group{margin-bottom:1.25rem}
+        .form-label{display:block;font-size:0.81rem;font-weight:600;margin-bottom:0.5rem}
+        .form-control{width:100%;padding:0.85rem 1.1rem;border:1.5px solid rgba(0,0,0,0.1);border-radius:7px;font-size:0.92rem;font-family:'Inter',sans-serif;color:var(--text-dark);background:var(--cream);transition:var(--transition)}
+        .form-control:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,0.12);background:#fff}
+        .form-control::placeholder{color:var(--text-light)}
+        select.form-control{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A8E9E' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem}
+        textarea.form-control{min-height:130px;resize:vertical}
+        .form-submit{width:100%;justify-content:center}
+        .form-privacy{font-size:0.77rem;color:var(--text-light);text-align:center;margin-top:0.75rem;line-height:1.6}
+
+        /* Amazon SVG */
+        .amazon-svg{width:18px;height:18px}
+
+        /* FOOTER */
+        .footer{background:#070C12;padding:4.5rem 0 2rem}
+        .footer__grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:3rem;margin-bottom:3rem}
+        .footer__logo{height:36px;margin-bottom:1rem}
+        .footer__logo img{height:100%;width:auto}
+        .footer__brand-tagline{font-size:0.85rem;color:rgba(255,255,255,0.38);line-height:1.75;max-width:260px}
+        .footer__col-title{font-size:0.76rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:1.25rem}
+        .footer__links li{margin-bottom:0.7rem}
+        .footer__link{font-size:0.87rem;color:rgba(255,255,255,0.4);transition:var(--transition);text-align:left;padding:0}
+        .footer__link:hover{color:var(--gold);padding-left:4px}
+        .footer__newsletter-desc{font-size:0.84rem;color:rgba(255,255,255,0.38);margin-bottom:1rem;line-height:1.7}
+        .footer__newsletter-form{display:flex;gap:0.5rem}
+        .footer__newsletter-input{flex:1;padding:0.75rem 1rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;color:#fff;font-size:0.87rem;font-family:'Inter',sans-serif}
+        .footer__newsletter-input:focus{outline:none;border-color:var(--gold)}
+        .footer__newsletter-input::placeholder{color:rgba(255,255,255,0.28)}
+        .footer__newsletter-btn{padding:0.75rem 1.2rem;background:var(--gold);color:var(--navy);border:none;border-radius:6px;font-weight:700;cursor:pointer;transition:var(--transition);font-family:'Inter',sans-serif;font-size:0.87rem}
+        .footer__newsletter-btn:hover{background:var(--gold-dark)}
+        .footer__divider{border:none;border-top:1px solid rgba(255,255,255,0.07);margin-bottom:2rem}
+        .footer__bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+        .footer__copy{font-size:0.81rem;color:rgba(255,255,255,0.22)}
+        .footer__copy a{color:rgba(255,255,255,0.22);transition:var(--transition)}
+        .footer__copy a:hover{color:var(--gold)}
+        .footer__legal{display:flex;gap:1.75rem}
+        .footer__legal a{font-size:0.81rem;color:rgba(255,255,255,0.22);transition:var(--transition)}
+        .footer__legal a:hover{color:var(--gold)}
+
+        /* RESPONSIVE */
+        @media(max-width:1024px){
+            .hero__inner{grid-template-columns:1fr;text-align:center}
+            .hero__sub{margin:0 auto 2.25rem}
+            .hero__cta-group,.hero__proof{justify-content:center}
+            .hero__visual{margin-top:2rem}
+            .hero__photo-frame{width:300px;height:380px;margin:0 auto}
+            .hero__float-card--a{right:-20px}.hero__float-card--b{left:-20px}
+            .value-grid,.services-grid,.pillars-grid{grid-template-columns:repeat(2,1fr)}
+            .about-layout{grid-template-columns:1fr}
+            .about-photo-wrap{max-width:400px;margin:0 auto}
+            .stats-row{grid-template-columns:repeat(2,1fr)}
+            .stats-cell{border-right:none;border-bottom:1px solid rgba(255,255,255,0.07)}
+            .contact-layout{grid-template-columns:1fr}
+            .footer__grid{grid-template-columns:repeat(2,1fr)}
+            .authors-grid{grid-template-columns:1fr}
+            .founder-section{grid-template-columns:1fr;text-align:center}
+            .founder-photo{margin:0 auto}
+        }
+        @media(max-width:768px){
+            .navbar__links{display:none}
+            .hamburger{display:flex}
+            .value-grid,.services-grid,.pillars-grid{grid-template-columns:1fr}
+            .stats-row{grid-template-columns:1fr}
+            .check-list{grid-template-columns:1fr}
+            .form-row{grid-template-columns:1fr}
+            .hero__proof{flex-wrap:wrap;gap:1.5rem}
+            .footer__grid{grid-template-columns:1fr}
+            .footer__bottom{flex-direction:column;text-align:center}
+            .cta-band{padding:2.5rem 1.5rem}
+            .section{padding:4rem 0}
+            .hero__cta-group{flex-direction:column;align-items:center}
+            .hero__visual{display:none}
+            .author-card__top{flex-direction:column;align-items:center;text-align:center}
+            .author-card__bottom{flex-direction:column;align-items:center}
+        }
+        @media(max-width:480px){
+            .hero__headline{font-size:1.85rem}
+            .contact-form-card{padding:1.75rem}
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+    <div class="container">
+        <div class="navbar__inner">
+            <div class="navbar__logo" onclick="showPage('home')">
+                <img src="Dominion (2).png" alt="Amos Dominion Logo">
+            </div>
+            <ul class="navbar__links">
+                <li><button class="nav-btn active" data-page="home" onclick="showPage('home')">Home</button></li>
+                <li><button class="nav-btn" data-page="about" onclick="showPage('about')">About</button></li>
+                <li><button class="nav-btn" data-page="services" onclick="showPage('services')">Services</button></li>
+                <li><button class="nav-btn" data-page="testimonials" onclick="showPage('testimonials')">Featured Authors</button></li>
+                <li><button class="nav-btn nav-cta" data-page="contact" onclick="showPage('contact')">Submit Inquiry</button></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
+        </div>
+    </div>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="mobile-drawer" id="mobileDrawer">
+    <button class="mobile-drawer__close" onclick="toggleDrawer()">✕</button>
+    <button class="mobile-drawer__link" onclick="showPage('home');toggleDrawer()">Home</button>
+    <button class="mobile-drawer__link" onclick="showPage('about');toggleDrawer()">About</button>
+    <button class="mobile-drawer__link" onclick="showPage('services');toggleDrawer()">Services</button>
+    <button class="mobile-drawer__link" onclick="showPage('testimonials');toggleDrawer()">Featured Authors</button>
+    <button class="mobile-drawer__link" onclick="showPage('contact');toggleDrawer()">Submit Inquiry</button>
+</div>
+
+<!-- ═══════════════════════
+     HOME PAGE
+═══════════════════════ -->
+<div class="page active" id="page-home">
+    <section class="hero">
+        <div class="hero__bg"></div>
+        <div class="hero__grid"></div>
+        <div class="container">
+            <div class="hero__inner">
+                <div>
+                    <div class="hero__kicker"><div class="hero__kicker-dot"></div><span class="hero__kicker-text">Premium Book Marketing Specialist</span></div>
+                    <h1 class="hero__headline">The Difference Between a Good Book and a <em>Great Career</em> Is Strategic Marketing.</h1>
+                    <p class="hero__sub">Amos Dominion partners with serious authors and publishers to architect data-driven launch campaigns, dominate retail algorithms, and transform manuscripts into commercially dominant bestsellers — all governed by ironclad written documentation at every stage.</p>
+                    <div class="hero__cta-group">
+                        <button class="btn btn-gold btn-lg btn-arrow" onclick="showPage('contact')">Submit Your Project Inquiry </button>
+                        <button class="btn btn-outline-white btn-lg" onclick="showPage('services')">Explore What's Possible</button>
+                    </div>
+                    <div class="hero__proof">
+                        <div><div class="hero__proof-num">200+</div><div class="hero__proof-label">Launches Executed</div></div>
+                        <div><div class="hero__proof-num">50+</div><div class="hero__proof-label">Verified Bestsellers</div></div>
+                        <div><div class="hero__proof-num">12+</div><div class="hero__proof-label">Years of Mastery</div></div>
+                    </div>
+                </div>
+                <div class="hero__visual">
+                    <div class="hero__photo-frame">
+                        <img src="Dominion (2).png" alt="Amos Dominion — Book Marketing Specialist">
+                    </div>
+                    <div class="hero__float-card hero__float-card--a">
+                        <div class="hero__float-card__icon">📈</div>
+                        <div class="hero__float-card__num">340%</div>
+                        <div class="hero__float-card__label">Avg. Sales Lift</div>
+                    </div>
+                    <div class="hero__float-card hero__float-card--b">
+                        <div class="hero__float-card__icon">📋</div>
+                        <div class="hero__float-card__num">100%</div>
+                        <div class="hero__float-card__label">Written Accountability</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="policy-strip">
+        <div class="container"><div class="policy-strip__inner">
+            <span class="policy-strip__tag">Governance Policy</span>
+            <span class="policy-strip__text">Every strategy, campaign update, and milestone confirmation is conducted exclusively through documented written correspondence — ensuring absolute clarity and full accountability at every stage.</span>
+        </div></div>
+    </div>
+
+    <div class="trust-bar">
+        <div class="container">
+            <p class="trust-bar__label">Featured authors have been recognized across</p>
+            <div class="trust-bar__logos">
+                <span class="trust-logo">Publishers Weekly</span><span class="trust-logo">BookBub</span><span class="trust-logo">Kirkus Reviews</span><span class="trust-logo">The New York Times</span><span class="trust-logo">Amazon Charts</span><span class="trust-logo">USA Today</span>
+            </div>
+        </div>
+    </div>
+
+    <section class="section section--white">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="eyebrow" style="justify-content:center"><span class="eyebrow-line"></span>Why Serious Authors Choose This Practice</div>
+                <h2 class="section-title">Precision-Engineered Marketing That Creates Measurable, Lasting Commercial Success</h2>
+                <p class="section-sub">Without a structured marketing architecture, even the finest manuscript risks commercial invisibility. Every engagement is built upon deep industry knowledge, proven systems, and a relentless commitment to quantifiable outcomes.</p>
+            </div>
+            <div class="value-grid">
+                <div class="value-card reveal d1"><div class="value-card__icon">🎯</div><h3 class="value-card__title">Algorithmic Retail Dominance</h3><p class="value-card__desc">Using behavioral search analytics, competitive metadata modeling, and category positioning frameworks, campaigns systematically capture and maintain prominent retail placement across every major commercial platform.</p></div>
+                <div class="value-card reveal d2"><div class="value-card__icon">📋</div><h3 class="value-card__title">Full Written Accountability</h3><p class="value-card__desc">Every strategic decision, campaign modification, and performance metric is communicated through detailed written correspondence. You retain permanent records of the entire engagement with zero ambiguity.</p></div>
+                <div class="value-card reveal d3"><div class="value-card__icon">🚀</div><h3 class="value-card__title">Compounding Revenue Architecture</h3><p class="value-card__desc">Every campaign generates immediate retail momentum while establishing durable algorithmic foundations that continue generating royalty income months and years beyond the initial release window.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--cream-dark">
+        <div class="container">
+            <div class="section-header reveal" style="margin-bottom:2.5rem">
+                <div class="eyebrow" style="justify-content:center"><span class="eyebrow-line"></span>Verified Performance Record</div>
+                <h2 class="section-title">Every Figure Below Is Drawn From Documented Campaign Data</h2>
+            </div>
+            <div class="stats-row reveal">
+                <div class="stats-cell"><div class="stats-cell__num">200+</div><div class="stats-cell__label">Campaigns Executed</div></div>
+                <div class="stats-cell"><div class="stats-cell__num">50+</div><div class="stats-cell__label">Bestseller Placements</div></div>
+                <div class="stats-cell"><div class="stats-cell__num">340%</div><div class="stats-cell__label">Avg. Sales Lift</div></div>
+                <div class="stats-cell"><div class="stats-cell__num">100%</div><div class="stats-cell__label">Written Documentation</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--white">
+        <div class="container">
+            <div class="cta-band reveal"><div class="cta-band__inner">
+                <h2 class="cta-band__title">Your Manuscript Is Commercially Ready.<br>Is Your Marketing Strategy?</h2>
+                <p class="cta-band__sub">Submit a project inquiry and receive a comprehensive written assessment of your book's commercial positioning. All engagement terms are discussed privately via email.</p>
+                <div class="cta-band__buttons">
+                    <button class="btn btn-gold btn-lg btn-arrow" onclick="showPage('contact')">Submit Your Project Inquiry </button>
+                    <button class="btn btn-outline-gold btn-lg" onclick="showPage('testimonials')">View Featured Authors</button>
+                </div>
+                <p class="cta-note">🔒 Written assessment within 24 hours. Strict confidentiality maintained.</p>
+            </div></div>
+        </div>
+    </section>
+</div>
+
+<!-- ═══════════════════════
+     ABOUT PAGE
+═══════════════════════ -->
+<div class="page" id="page-about">
+    <div class="page-hero"><div class="container"><div class="page-hero__inner">
+        <div class="eyebrow" style="justify-content:center"><span class="eyebrow-line"></span>The Specialist Behind the Strategy</div>
+        <h1 class="page-hero__title">Amos Dominion — Built for Publishing Excellence</h1>
+        <p class="page-hero__sub">Over a decade of dedicated immersion in the book publishing ecosystem has produced a specialist whose expertise is a product of concentrated, publishing-specific mastery developed across hundreds of live commercial campaigns.</p>
+        <div class="breadcrumb"><button class="breadcrumb__btn" onclick="showPage('home')">Home</button><span class="breadcrumb__sep">›</span><span class="breadcrumb__current">About</span></div>
+    </div></div></div>
+
+    <section class="section section--white">
+        <div class="container">
+            <div class="about-layout">
+                <div class="about-photo-wrap reveal">
+                    <div class="about-photo"><img src="Dominion (2).png" alt="Amos Dominion Professional"></div>
+                    <div class="about-badge"><div class="about-badge__num">12+</div><div class="about-badge__label">Years of<br>Expertise</div></div>
+                </div>
+                <div class="about-text reveal d2">
+                    <div class="eyebrow"><span class="eyebrow-line"></span>Professional Foundation</div>
+                    <h2 class="about-text__headline">Publishing Specialization Built From the Inside Out</h2>
+                    <p>My professional foundation was established inside the operational infrastructure of a commercial publishing house, managing campaigns across diverse catalogs. This provided internal perspective on the publishing ecosystem that few external marketers access.</p>
+                    <p>What became clear was a systemic gap between manuscript quality and marketing sophistication. Exceptional work was underperforming commercially because the marketing infrastructure was underbuilt and lacking strategic precision. I made it my mandate to close that gap permanently.</p>
+                    <p>Over the subsequent decade, I developed an evidence-based system responsible for over 200 launches, 50+ verified bestseller placements, and an average campaign ROI of 340%. Every engagement operates under strict written documentation — all terms discussed privately via email.</p>
+                    <ul class="check-list">
+                        <li>Amazon & Retail Algorithm Specialist</li>
+                        <li>AMS Advertising Architecture Expert</li>
+                        <li>Author Platform Positioning Strategist</li>
+                        <li>Direct-to-Reader Conversion Architect</li>
+                        <li>PR & Editorial Media Relations Lead</li>
+                        <li>Written Documentation Governance</li>
+                    </ul>
+                    <button class="btn btn-gold btn-lg btn-arrow" onclick="showPage('contact')">Initiate a Formal Inquiry </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--dark">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="eyebrow" style="justify-content:center"><span class="eyebrow-line"></span>Governing Principles</div>
+                <h2 class="section-title">Three Non-Negotiable Foundations</h2>
+            </div>
+            <div class="pillars-grid">
+                <div class="pillar-card reveal d1"><div class="pillar-card__num">01</div><h3 class="pillar-card__title">Written Accountability</h3><p class="pillar-card__desc">Every strategy, budget authorization, and performance report is documented in writing and delivered directly to the client. All engagement terms are conducted privately via direct email.</p></div>
+                <div class="pillar-card reveal d2"><div class="pillar-card__num">02</div><h3 class="pillar-card__title">Evidence-Based Execution</h3><p class="pillar-card__desc">No tactic is deployed without behavioral data or validated precedent. Market research and competitive intelligence govern every strategic decision, eliminating costly speculative approaches.</p></div>
+                <div class="pillar-card reveal d3"><div class="pillar-card__num">03</div><h3 class="pillar-card__title">Long-Horizon Revenue</h3><p class="pillar-card__desc">The architectural goal is to establish an author's catalog as a compounding commercial asset — building systems that generate royalty income consistently across a multi-year timeframe.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--cream">
+        <div class="container">
+            <div class="cta-band reveal"><div class="cta-band__inner">
+                <h2 class="cta-band__title">Ready to Work With a Specialist Whose<br><span class="gold">Track Record Speaks For Itself?</span></h2>
+                <p class="cta-band__sub">Submit your inquiry and receive a substantive written assessment within 24 hours. All engagement terms discussed privately via email.</p>
+                <div class="cta-band__buttons"><button class="btn btn-gold btn-lg btn-arrow" onclick="showPage('contact')">Submit a Formal Inquiry </button></div>
+                <p class="cta-note">📧 Personal written response within 24 hours. No automated replies.</p>
+            </div></div>
+        </div>
+    </section>
+</div>
+
+<!-- ═══════════════════════
+     SERVICES PAGE
+═══════════════════════ -->
+<div class="page" id="page-services">
+    <div class="page-hero"><div class="container"><div class="page-hero__inner">
+        <div class="eyebrow" style="justify-content:center"><span class="eyebrow-line"></span>The Full Strategic Portfolio</div>
+        <h1 class="page-hero__title">Premium Book Marketing Services</h1>
+        <p class="page-hero__sub">A comprehensive suite of solutions for authors and publishers demanding systematic, well-documented commercial growth architectures. All engagement details discussed privately via email.</p>
+        <div class="breadcrumb"><button class="breadcrumb__btn" onclick="showPage('home')">Home</button><span class="breadcrumb__sep">›</span><span class="breadcrumb__current">Services</span></div>
+    </div></div></div>
+
+    <section class="section section--white">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="eyebrow" style="justify-content:center"><span class="eyebrow-line"></span>Core Service Disciplines</div>
+                <h2 class="section-title">Six High-Accountability Disciplines for Commercial Success</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal d1"><div class="service-card__icon">🚀</div><h3 class="service-card__title">Book Launch Architecture</h3><p class="service-card__desc">A fully documented, multi-channel launch system to maximize first-week velocity, trigger algorithm eligibility, and generate review momentum.</p><ul class="service-card__features"><li>Pre-launch market positioning</li><li>ARC campaign architecture</li><li>Synchronized advertising deployment</li><li>Post-launch algorithmic retention</li></ul></div>
+                <div class="service-card reveal d2"><div class="service-card__icon">📊</div><h3 class="service-card__title">Retail Platform Domination</h3><p class="service-card__desc">Rebuilding your entire retail presence from the foundation: metadata architecture, keyword indexing, and targeted advertising for category-dominant positioning.</p><ul class="service-card__features"><li>Metadata & keyword strategy</li><li>AMS campaign management</li><li>Category competitive analysis</li><li>Monthly written performance reports</li></ul></div>
+                <div class="service-card reveal d3"><div class="service-card__icon">✉️</div><h3 class="service-card__title">Reader Acquisition & Retention</h3><p class="service-card__desc">Building your most commercially resilient asset — a dedicated reader subscriber ecosystem that drives consistent sales across every future release.</p><ul class="service-card__features"><li>Lead magnet creation</li><li>Automated funnel architecture</li><li>List segmentation & A/B testing</li><li>Monthly conversion reporting</li></ul></div>
+                <div class="service-card reveal d1"><div class="service-card__icon">🎨</div><h3 class="service-card__title">Author Brand Architecture</h3><p class="service-card__desc">Constructing a unified author identity that commands premium positioning and sustains reader loyalty across multiple release cycles.</p><ul class="service-card__features"><li>Positioning & voice strategy</li><li>Website conversion optimization</li><li>Press kit creation</li><li>Cross-platform cohesion</li></ul></div>
+                <div class="service-card reveal d2"><div class="service-card__icon">📰</div><h3 class="service-card__title">Strategic PR & Media</h3><p class="service-card__desc">Securing high-quality editorial placements across the publications and outlets that carry the most credibility with your target readership.</p><ul class="service-card__features"><li>Media target list construction</li><li>Press release distribution</li><li>Podcast guest booking</li><li>Earned media tracking</li></ul></div>
+                <div class="service-card reveal d3"><div class="service-card__icon">📈</div><h3 class="service-card__title">Performance Advertising</h3><p class="service-card__desc">Systematically managed advertising across Amazon and digital platforms — every dollar tracked, attributed, and reported in writing.</p><ul class="service-card__features"><li>Keyword array construction</li><li>Dynamic bid management</li><li>Cross-platform coordination</li><li>Complete spend disclosure</li></ul></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--cream">
+        <div class="container">
+            <div class="cta-band reveal"><div class="cta-band__inner">
+                <h2 class="cta-band__title">All Engagement Terms Discussed<br><span class="gold">Privately Via Direct Email.</span></h2>
+                <p class="cta-band__sub">Submit your project details and receive a substantive written analysis alongside a tailored service recommendation — at no obligation. All scope and terms handled privately.</p>
+                <div class="cta-band__buttons"><button class="btn btn-gold btn-lg btn-arrow" onclick="showPage('contact')">Submit Your Project Brief </button></div>
+                <p class="cta-note">🔒 Response guaranteed within 24 hours. Strict confidentiality maintained.</p>
+            </div></div>
+        </div>
+    </section>
+</div>
+
+<!-- ═══════════════════════
+     TESTIMONIALS / FEATURED AUTHORS PAGE
+═══════════════════════ -->
+<div class="page" id="page-testimonials">
+    <div class="page-hero"><div class="container"><div class="page-hero__inner">
+        <div class="eyebrow" style="justify-content:center"><span class="eyebrow-line"></span>Featured Author Collaborations</div>
+        <h1 class="page-hero__title">Authors I've Had the Privilege<br>of Working With</h1>
+        <p class="page-hero__sub">Each partnership below represents a dedicated, strategically executed collaboration — delivering measurable commercial impact through documented, accountable book marketing expertise. These are real authors with real results.</p>
+        <div class="breadcrumb"><button class="breadcrumb__btn" onclick="showPage('home')">Home</button><span class="breadcrumb__sep">›</span><span class="breadcrumb__current">Featured Authors</span></div>
+    </div></div></div>
+
+    <section class="section section--white">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="eyebrow" style="justify-content:center"><span class="eyebrow-line"></span>Verified Partnerships</div>
+                <h2 class="section-title">Successful Collaborations Built on Strategy, Transparency, and Documented Results</h2>
+                <p class="section-sub">Every author featured below entrusted their book's commercial success to a structured, fully documented marketing engagement. Click any book cover or Amazon button to view their work directly on Amazon.</p>
+            </div>
+            <div class="authors-grid">
+
+                <!-- HARLEIGN BECK -->
+                <div class="author-card reveal d1">
+                    <div class="author-card__top">
+                        <div class="author-card__profile"><img src="harleign profile.webp" alt="Harleign Beck"></div>
+                        <div class="author-card__info">
+                            <h3 class="author-card__name">Harleign Beck</h3>
+                            <p class="author-card__role">Published Author — Dark Romance & Psychological Fiction</p>
+                            <span class="author-card__email"><span class="author-card__email-icon">✉</span> harleignbeck@atomicmail.io</span>
+                        </div>
+                    </div>
+                    <div class="author-card__body">
+                        <p class="author-card__quote">Working with Harleign Beck was a deeply strategic engagement focused on positioning her work within one of the most competitive and rapidly growing genre categories in digital publishing. Through meticulous audience targeting, algorithm-optimized retail listing architecture, and a precisely timed multi-channel launch deployment, we engineered significant commercial visibility for her catalog — establishing a defensible brand presence that continues to compound reader acquisition and sustained sales momentum across subsequent releases.</p>
+                    </div>
+                    <div class="author-card__bottom">
+                        <div>
+                            <a href="#" target="_blank" rel="noopener" class="author-card__book" title="View on Amazon">
+                                <img src="harleign book.webp" alt="Harleign Beck Book Cover">
+                            </a>
+                            <a href="#" target="_blank" rel="noopener" class="author-card__amazon">
+                                <svg class="amazon-svg" viewBox="0 0 24 24"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.7-3.182v.685zm3.186 7.705a.66.66 0 01-.753.069c-1.057-.878-1.247-1.287-1.826-2.125-1.746 1.782-2.981 2.312-5.242 2.312-2.676 0-4.762-1.653-4.762-4.96 0-2.582 1.399-4.339 3.392-5.2 1.726-.762 4.139-.897 5.985-1.107v-.413c0-.762.058-1.664-.389-2.322-.387-.59-1.13-.833-1.788-.833-1.214 0-2.296.623-2.562 1.917a.637.637 0 01-.546.55l-3.07-.332c-.258-.058-.544-.266-.47-.66C6.014 1.591 9.061 0 11.79 0c1.399 0 3.229.372 4.333 1.432 1.399 1.307 1.267 3.052 1.267 4.95v4.483c0 1.348.559 1.94 1.084 2.668.185.261.226.575-.01.77-.592.495-1.645 1.415-2.224 1.93l-.004-.004zM21.79 21.767C19.478 23.587 16.078 24.5 13.155 24.5c-4.078 0-7.748-1.507-10.524-4.013-.218-.197-.023-.465.239-.313 2.997 1.744 6.705 2.793 10.532 2.793 2.581 0 5.418-.535 8.032-1.644.394-.17.724.259.355.444zM22.906 20.37c-.297-.381-1.966-.181-2.716-.091-.228.028-.263-.171-.058-.314 1.33-.935 3.512-.665 3.766-.352.256.316-.067 2.503-1.315 3.547-.192.161-.374.075-.289-.138.281-.699.91-2.27.612-2.652z"/></svg>
+                                View on Amazon
+                            </a>
+                        </div>
+                        <div class="author-card__meta">
+                            <span class="author-card__result">Strategic Launch Partner</span>
+                            <span class="author-card__result">Retail Visibility Engineered</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUE WATSON -->
+                <div class="author-card reveal d2">
+                    <div class="author-card__top">
+                        <div class="author-card__profile"><img src="sue profile.jfif" alt="Sue Watson"></div>
+                        <div class="author-card__info">
+                            <h3 class="author-card__name">Sue Watson</h3>
+                            <p class="author-card__role">Bestselling Author — Psychological Thriller & Domestic Suspense</p>
+                            <span class="author-card__email"><span class="author-card__email-icon">✉</span> authorsuewatson@proton.me</span>
+                        </div>
+                    </div>
+                    <div class="author-card__body">
+                        <p class="author-card__quote">Partnering with Sue Watson involved executing sophisticated multi-title marketing operations for an established author with an extensive backlist and a highly engaged existing readership. The strategic focus centered on amplifying new release visibility while simultaneously revitalizing catalog performance through coordinated advertising architecture, email-driven reader reactivation campaigns, and algorithmic retail optimization — delivering sustained commercial momentum across her entire published portfolio and reinforcing her position as a category leader.</p>
+                    </div>
+                    <div class="author-card__bottom">
+                        <div>
+                            <a href="#" target="_blank" rel="noopener" class="author-card__book" title="View on Amazon">
+                                <img src="sue book.webp" alt="Sue Watson Book Cover">
+                            </a>
+                            <a href="#" target="_blank" rel="noopener" class="author-card__amazon">
+                                <svg class="amazon-svg" viewBox="0 0 24 24"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.7-3.182v.685zm3.186 7.705a.66.66 0 01-.753.069c-1.057-.878-1.247-1.287-1.826-2.125-1.746 1.782-2.981 2.312-5.242 2.312-2.676 0-4.762-1.653-4.762-4.96 0-2.582 1.399-4.339 3.392-5.2 1.726-.762 4.139-.897 5.985-1.107v-.413c0-.762.058-1.664-.389-2.322-.387-.59-1.13-.833-1.788-.833-1.214 0-2.296.623-2.562 1.917a.637.637 0 01-.546.55l-3.07-.332c-.258-.058-.544-.266-.47-.66C6.014 1.591 9.061 0 11.79 0c1.399 0 3.229.372 4.333 1.432 1.399 1.307 1.267 3.052 1.267 4.95v4.483c0 1.348.559 1.94 1.084 2.668.185.261.226.575-.01.77-.592.495-1.645 1.415-2.224 1.93l-.004-.004zM21.79 21.767C19.478 23.587 16.078 24.5 13.155 24.5c-4.078 0-7.748-1.507-10.524-4.013-.218-.197-.023-.465.239-.313 2.997 1.744 6.705 2.793 10.532 2.793 2.581 0 5.418-.535 8.032-1.644.394-.17.724.259.355.444zM22.906 20.37c-.297-.381-1.966-.181-2.716-.091-.228.028-.263-.171-.058-.314 1.33-.935 3.512-.665 3.766-.352.256.316-.067 2.503-1.315 3.547-.192.161-.374.075-.289-.138.281-.699.91-2.27.612-2.652z"/></svg>
+                                View on Amazon
+                            </a>
+                        </div>
+                        <div class="author-card__meta">
+                            <span class="author-card__result">Multi-Title Campaign</span>
+                            <span class="author-card__result">Catalog Revitalization</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KAREN KING -->
+                <div class="author-card reveal d1">
+                    <div class="author-card__top">
+                        <div class="author-card__profile"><img src="karen profile.jfif" alt="Karen King"></div>
+                        <div class="author-card__info">
+                            <h3 class="author-card__name">Karen King</h3>
+                            <p class="author-card__role">Bestselling Author — Women's Fiction & Contemporary Romance</p>
+                            <span class="author-card__email"><span class="author-card__email-icon">✉</span> authorkarenking@gmail.com</span>
+                        </div>
+                    </div>
+                    <div class="author-card__body">
+                        <p class="author-card__quote">The collaboration with Karen King was anchored in a precision-targeted approach to retail dominance within one of the most competitive commercial fiction categories. Through strategic keyword architecture, conversion-optimized listing frameworks, and a systematically executed advertising infrastructure, we delivered measurable uplift in both organic discoverability and direct sales conversion — strengthening her commercial positioning, expanding her reader base across multiple territories, and creating a replicable marketing infrastructure for every subsequent title in her publishing pipeline.</p>
+                    </div>
+                    <div class="author-card__bottom">
+                        <div>
+                            <a href="#" target="_blank" rel="noopener" class="author-card__book" title="View on Amazon">
+                                <img src="karen book.jpg" alt="Karen King Book Cover">
+                            </a>
+                            <a href="#" target="_blank" rel="noopener" class="author-card__amazon">
+                                <svg class="amazon-svg" viewBox="0 0 24 24"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.7-3.182v.685zm3.186 7.705a.66.66 0 01-.753.069c-1.057-.878-1.247-1.287-1.826-2.125-1.746 1.782-2.981 2.312-5.242 2.312-2.676 0-4.762-1.653-4.762-4.96 0-2.582 1.399-4.339 3.392-5.2 1.726-.762 4.139-.897 5.985-1.107v-.413c0-.762.058-1.664-.389-2.322-.387-.59-1.13-.833-1.788-.833-1.214 0-2.296.623-2.562 1.917a.637.637 0 01-.546.55l-3.07-.332c-.258-.058-.544-.266-.47-.66C6.014 1.591 9.061 0 11.79 0c1.399 0 3.229.372 4.333 1.432 1.399 1.307 1.267 3.052 1.267 4.95v4.483c0 1.348.559 1.94 1.084 2.668.185.261.226.575-.01.77-.592.495-1.645 1.415-2.224 1.93l-.004-.004zM21.79 21.767C19.478 23.587 16.078 24.5 13.155 24.5c-4.078 0-7.748-1.507-10.524-4.013-.218-.197-.023-.465.239-.313 2.997 1.744 6.705 2.793 10.532 2.793 2.581 0 5.418-.535 8.032-1.644.394-.17.724.259.355.444zM22.906 20.37c-.297-.381-1.966-.181-2.716-.091-.228.028-.263-.171-.058-.314 1.33-.935 3.512-.665 3.766-.352.256.316-.067 2.503-1.315 3.547-.192.161-.374.075-.289-.138.281-.699.91-2.27.612-2.652z"/></svg>
+                                View on Amazon
+                            </a>
+                        </div>
+                        <div class="author-card__meta">
+                            <span class="author-card__result">Retail Dominance Strategy</span>
+                            <span class="author-card__result">Multi-Territory Expansion</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- JOSHUA DALZELLE -->
+                <div class="author-card reveal d2">
+                    <div class="author-card__top">
+                        <div class="author-card__profile"><img src="joshua profile.jfif" alt="Joshua Dalzelle"></div>
+                        <div class="author-card__info">
+                            <h3 class="author-card__name">Joshua Dalzelle</h3>
+                            <p class="author-card__role">Bestselling Author — Military Science Fiction & Space Opera</p>
+                            <span class="author-card__email"><span class="author-card__email-icon">✉</span> dalzellejoshbooks@outlook.com</span>
+                        </div>
+                    </div>
+                    <div class="author-card__body">
+                        <p class="author-card__quote">The partnership with Joshua Dalzelle represented a high-volume catalog optimization engagement within one of Amazon's most algorithmically complex genre categories. Leveraging deep competitive intelligence, series-specific advertising architecture, and read-through monetization modeling, we engineered a campaign framework that systematically elevated visibility across his extensive multi-series catalog — driving measurable increases in both new reader acquisition and existing reader series completion rates, while establishing a sustainable, data-validated marketing infrastructure designed to scale predictably with every new release.</p>
+                    </div>
+                    <div class="author-card__bottom">
+                        <div>
+                            <a href="#" target="_blank" rel="noopener" class="author-card__book" title="View on Amazon">
+                                <img src="joshua book.webp" alt="Joshua Dalzelle Book Cover">
+                            </a>
+                            <a href="#" target="_blank" rel="noopener" class="author-card__amazon">
+                                <svg class="amazon-svg" viewBox="0 0 24 24"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.7-3.182v.685zm3.186 7.705a.66.66 0 01-.753.069c-1.057-.878-1.247-1.287-1.826-2.125-1.746 1.782-2.981 2.312-5.242 2.312-2.676 0-4.762-1.653-4.762-4.96 0-2.582 1.399-4.339 3.392-5.2 1.726-.762 4.139-.897 5.985-1.107v-.413c0-.762.058-1.664-.389-2.322-.387-.59-1.13-.833-1.788-.833-1.214 0-2.296.623-2.562 1.917a.637.637 0 01-.546.55l-3.07-.332c-.258-.058-.544-.266-.47-.66C6.014 1.591 9.061 0 11.79 0c1.399 0 3.229.372 4.333 1.432 1.399 1.307 1.267 3.052 1.267 4.95v4.483c0 1.348.559 1.94 1.084 2.668.185.261.226.575-.01.77-.592.495-1.645 1.415-2.224 1.93l-.004-.004zM21.79 21.767C19.478 23.587 16.078 24.5 13.155 24.5c-4.078 0-7.748-1.507-10.524-4.013-.218-.197-.023-.465.239-.313 2.997 1.744 6.705 2.793 10.532 2.793 2.581 0 5.418-.535 8.032-1.644.394-.17.724.259.355.444zM22.906 20.37c-.297-.381-1.966-.181-2.716-.091-.228.028-.263-.171-.058-.314 1.33-.935 3.512-.665 3.766-.352.256.316-.067 2.503-1.315 3.547-.192.161-.374.075-.289-.138.281-.699.91-2.27.612-2.652z"/></svg>
+                                View on Amazon
+                            </a>
+                        </div>
+                        <div class="author-card__meta">
+                            <span class="author-card__result">Catalog Optimization</span>
+                            <span class="author-card__result">Series Read-Through Scaling</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Strip -->
+    <section class="section section--dark">
+        <div class="container">
+            <div class="founder-section reveal">
+                <div class="founder-photo"><img src="Dominion (2).png" alt="Amos Dominion"></div>
+                <div class="founder-text">
+                    <h3>A Word From Amos Dominion</h3>
+                    <p>Every author collaboration featured above represents a genuine professional partnership built on mutual trust, strategic precision, and complete written accountability. I do not take on projects I cannot fully commit to — which is why client intake remains deliberately limited each quarter. If you are serious about your book's commercial trajectory and value working with a specialist who documents every decision and delivers measurable outcomes, I invite you to submit your project inquiry.</p>
+                    <p class="sig">— Amos Dominion, Book Marketing Specialist</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--cream">
+        <div class="container">
+            <div class="cta-band reveal"><div class="cta-band__inner">
+                <h2 class="cta-band__title">Your Book Could Be the Next<br><span class="gold">Featured Success Story.</span></h2>
+                <p class="cta-band__sub">Submit your project details and receive a comprehensive written assessment. All engagement terms discussed privately via email.</p>
+                <div class="cta-band__buttons"><button class="btn btn-gold btn-lg btn-arrow" onclick="showPage('contact')">Submit Your Project Inquiry </button></div>
+                <p class="cta-note">⚡ Limited availability each quarter. Early submission recommended.</p>
+            </div></div>
+        </div>
+    </section>
+</div>
+
+<!-- ═══════════════════════
+     CONTACT PAGE
+═══════════════════════ -->
+<div class="page" id="page-contact">
+    <div class="page-hero"><div class="container"><div class="page-hero__inner">
+        <div class="eyebrow" style="justify-content:center"><span class="eyebrow-line"></span>Initiate Your Inquiry</div>
+        <h1 class="page-hero__title">Every Successful Partnership Begins<br>With a Written Conversation</h1>
+        <p class="page-hero__sub">Submit your project details below. Within 24 hours you will receive a personally authored written response with a substantive assessment and preliminary strategy. All engagement terms discussed privately via email.</p>
+        <div class="breadcrumb"><button class="breadcrumb__btn" onclick="showPage('home')">Home</button><span class="breadcrumb__sep">›</span><span class="breadcrumb__current">Contact</span></div>
+    </div></div></div>
+
+    <section class="section section--white">
+        <div class="container">
+            <div class="contact-layout">
+                <div class="reveal">
+                    <div class="eyebrow"><span class="eyebrow-line"></span>Correspondence Standards</div>
+                    <h2 class="contact-info__headline">What to Expect From This Inquiry</h2>
+                    <p>Your initial submission is reviewed personally and responded to with a detailed written assessment — not a template or automated reply. All engagement scope, terms, and investment discussions are conducted exclusively through private, direct email correspondence — ensuring complete confidentiality.</p>
+
+                    <ul class="contact-details">
+                        <li class="contact-detail">
+                            <div class="contact-detail__icon">✉</div>
+                            <div><div class="contact-detail__label">Direct Email</div><div class="contact-detail__value">amosdominion.specialist@gmail.com</div><div class="contact-detail__note">All engagement discussions handled exclusively through this address</div></div>
+                        </li>
+                        <li class="contact-detail">
+                            <div class="contact-detail__icon">🌍</div>
+                            <div><div class="contact-detail__label">Coverage</div><div class="contact-detail__value">Worldwide — Full Remote Capability</div></div>
+                        </li>
+                        <li class="contact-detail">
+                            <div class="contact-detail__icon">⏱</div>
+                            <div><div class="contact-detail__label">Response Time</div><div class="contact-detail__value">Written assessment within 24 hours</div><div class="contact-detail__note">Direct personal response — not automated</div></div>
+                        </li>
+                        <li class="contact-detail">
+                            <div class="contact-detail__icon">🔒</div>
+                            <div><div class="contact-detail__label">Confidentiality</div><div class="contact-detail__value">NDA-level discretion on all submissions</div></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="contact-form-card reveal d2">
+                    <h3 class="contact-form-card__heading">Submit Your Project Brief</h3>
+                    <p class="contact-form-card__sub">Every submission is read personally by Amos Dominion. The more detail you provide, the more substantive your written assessment will be.</p>
+                    <form action="https://formspree.io/f/mwvyarpe" method="POST" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group"><label class="form-label" for="firstName">First Name *</label><input type="text" id="firstName" name="firstName" class="form-control" placeholder="Jane" required></div>
+                            <div class="form-group"><label class="form-label" for="lastName">Last Name *</label><input type="text" id="lastName" name="lastName" class="form-control" placeholder="Smith" required></div>
+                        </div>
+                        <div class="form-group"><label class="form-label" for="email">Email Address *</label><input type="email" id="email" name="email" class="form-control" placeholder="jane@example.com" required></div>
+                        <div class="form-group"><label class="form-label" for="bookTitle">Book Title / Working Title</label><input type="text" id="bookTitle" name="bookTitle" class="form-control" placeholder="Your book title"></div>
+                        <div class="form-group"><label class="form-label" for="genre">Genre & Target Market</label><input type="text" id="genre" name="genre" class="form-control" placeholder="e.g., Thriller / Romance / Non-Fiction"></div>
+                        <div class="form-group">
+                            <label class="form-label" for="service">Service Discipline</label>
+                            <select id="service" name="service" class="form-control">
+                                <option value="">Select...</option>
+                                <option value="launch">Book Launch Architecture</option>
+                                <option value="retail">Retail Platform Domination</option>
+                                <option value="reader">Reader Acquisition & Retention</option>
+                                <option value="brand">Author Brand Architecture</option>
+                                <option value="pr">Strategic PR & Media</option>
+                                <option value="ads">Performance Advertising</option>
+                                <option value="comprehensive">Comprehensive Campaign</option>
+                                <option value="assessment">Initial Assessment</option>
+                            </select>
+                        </div>
+                        <div class="form-group"><label class="form-label" for="timeline">Publication Stage & Timeline</label><input type="text" id="timeline" name="timeline" class="form-control" placeholder="e.g., Pre-Launch Q3 2025 / Active / Backlist"></div>
+                        <div class="form-group"><label class="form-label" for="message">Project Overview & Goals *</label><textarea id="message" name="message" class="form-control" placeholder="Describe your book, goals, any prior marketing activity, and what success looks like for you..." required></textarea></div>
+                        <input type="hidden" name="_subject" value="New Project Inquiry — Amos Dominion Website">
+                        <button type="submit" class="btn btn-gold btn-lg form-submit btn-arrow">Submit Project Brief </button>
+                        <p class="form-privacy">🔒 Strict confidentiality. Email is the only communication method. All engagement terms discussed privately after assessment delivery.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--cream-dark">
+        <div class="container">
+            <div class="cta-band reveal"><div class="cta-band__inner">
+                <h2 class="cta-band__title">Prefer to Email Directly?</h2>
+                <p class="cta-band__sub">Forward your project details directly. Every message receives a personal, substantive written reply within 24 hours.</p>
+                <div class="cta-band__buttons"><a href="mailto:amosdominion.specialist@gmail.com" class="btn btn-gold btn-lg btn-arrow">amosdominion.specialist@gmail.com </a></div>
+                <p class="cta-note">📧 Personal reply guaranteed within 24 hours. Strict confidentiality maintained.</p>
+            </div></div>
+        </div>
+    </section>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer__grid">
+            <div>
+                <div class="footer__logo"><img src="Dominion (2).png" alt="Amos Dominion"></div>
+                <p class="footer__brand-tagline">Premium book marketing specialist engineering bestsellers through data-driven strategy and complete written accountability. All terms discussed privately via email.</p>
+            </div>
+            <div>
+                <h4 class="footer__col-title">Navigation</h4>
+                <ul class="footer__links">
+                    <li><button class="footer__link" onclick="showPage('home')">Home</button></li>
+                    <li><button class="footer__link" onclick="showPage('about')">About</button></li>
+                    <li><button class="footer__link" onclick="showPage('services')">Services</button></li>
+                    <li><button class="footer__link" onclick="showPage('testimonials')">Featured Authors</button></li>
+                    <li><button class="footer__link" onclick="showPage('contact')">Submit Inquiry</button></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer__col-title">Services</h4>
+                <ul class="footer__links">
+                    <li><button class="footer__link" onclick="showPage('services')">Launch Architecture</button></li>
+                    <li><button class="footer__link" onclick="showPage('services')">Retail Domination</button></li>
+                    <li><button class="footer__link" onclick="showPage('services')">Reader Acquisition</button></li>
+                    <li><button class="footer__link" onclick="showPage('services')">Author Branding</button></li>
+                    <li><button class="footer__link" onclick="showPage('services')">PR & Media</button></li>
+                    <li><button class="footer__link" onclick="showPage('services')">Performance Ads</button></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer__col-title">Stay Updated</h4>
+                <p class="footer__newsletter-desc">Receive publishing strategy insights and commercial performance benchmarks delivered to your inbox.</p>
+                <form class="footer__newsletter-form" onsubmit="handleNewsletter(event)">
+                    <input type="email" class="footer__newsletter-input" placeholder="Your email" required>
+                    <button type="submit" class="footer__newsletter-btn">→</button>
+                </form>
+            </div>
+        </div>
+        <hr class="footer__divider">
+        <div class="footer__bottom">
+            <p class="footer__copy">© 2025 Amos Dominion. All rights reserved. · <a href="mailto:amosdominion.specialist@gmail.com">amosdominion.specialist@gmail.com</a></p>
+            <div class="footer__legal"><a href="#">Confidentiality Policy</a><a href="#">Terms of Engagement</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+function showPage(name){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    const t=document.getElementById('page-'+name);
+    if(t)t.classList.add('active');
+    document.querySelectorAll('.nav-btn[data-page]').forEach(btn=>{
+        btn.classList.toggle('active',btn.dataset.page===name);
+    });
+    const nb=document.getElementById('navbar');
+    if(name==='home'){nb.classList.toggle('navbar--solid',window.scrollY>60)}
+    else{nb.classList.add('navbar--solid')}
+    window.scrollTo({top:0,behavior:'smooth'});
+    setTimeout(initReveal,100);
+}
+window.addEventListener('scroll',()=>{
+    const a=document.querySelector('.page.active');
+    if(a&&a.id==='page-home')document.getElementById('navbar').classList.toggle('navbar--solid',window.scrollY>60);
+},{passive:true});
+function toggleDrawer(){
+    document.getElementById('mobileDrawer').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
+}
+function initReveal(){
+    const a=document.querySelector('.page.active');
+    if(!a)return;
+    const els=a.querySelectorAll('.reveal:not(.in-view)');
+    const obs=new IntersectionObserver(entries=>{
+        entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');obs.unobserve(e.target)}});
+    },{threshold:0.07});
+    els.forEach(el=>obs.observe(el));
+}
+function handleNewsletter(e){
+    e.preventDefault();
+    const btn=e.target.querySelector('button');
+    btn.textContent='✓';e.target.reset();
+    setTimeout(()=>btn.textContent='→',3000);
+}
+document.addEventListener('DOMContentLoaded',()=>{
+    initReveal();
+    window.addEventListener('scroll',initReveal,{passive:true});
+    setTimeout(initReveal,300);
+});
+</script>
+</body>
+</html>
+```
